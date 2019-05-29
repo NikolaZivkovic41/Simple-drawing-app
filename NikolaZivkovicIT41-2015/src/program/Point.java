@@ -4,53 +4,53 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-public class Tacka extends Oblik {
+public class Point extends Shape {
 	private int x;
 	private int y;
 	
-	public Tacka(){
+	public Point(){
 
 	}
-	public Tacka(int x, int y){
+	public Point(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
-	public Tacka(int x, int y, Color spoljasnja){
+	public Point(int x, int y, Color outer){
 		this(x, y);
-		setSpoljBoja(spoljasnja);
+		setOuterColor(outer);
 	}
 	
-	public void pomeriNa(int novoX, int novoY){
-		x = novoX;
-		setY(novoY);
+	public void moveTo(int newX, int newY){
+		x = newX;
+		setY(newY);
 	}
-	public void pomeriZa(int novoX, int novoY){
-		x = x + novoX;
-		setY(getY()+novoY);
+	public void moveFor(int newX, int newY){
+		x = x + newX;
+		setY(getY()+newY);
 	}
 
-	public double udaljenost(Tacka t2){
+	public double distance(Point t2){
 		double dx = x - t2.getX();
 		double dy = y - t2.getY();
-		double rezultat = Math.sqrt(dx*dx + dy*dy);
+		double result = Math.sqrt(dx*dx + dy*dy);
 
-		return rezultat;
+		return result;
 	}
 	
 	public String toString(){
 		return "("+x+","+y+")";
 	}
 
-	public boolean sadrzi(int x, int y){
-		Tacka mestoKlika = new Tacka(x, y);
-		if(mestoKlika.udaljenost(this)<=2)
+	public boolean contains(int x, int y){
+		Point click = new Point(x, y);
+		if(click.distance(this)<=2)
 			return true;
 		else
 			return false;
 	}
 	
-	public void selektovan(Graphics g){
-		if(isSelektovan()==true){
+	public void selected(Graphics g){
+		if(isSelected()==true){
 			g.setColor(Color.blue);
 		    g.drawRect(x-3, y-3, 6, 6);
 		}else{
@@ -59,21 +59,21 @@ public class Tacka extends Oblik {
 		}		
 	}
 	
-	public void crtajSe(Graphics g) {
-		g.setColor(this.getSpoljBoja());
+	public void drawSelf(Graphics g) {
+		g.setColor(this.getOuterColor());
 		g.drawLine(x+2, y, x-2, y);
 		g.drawLine(x, y-2, x, y+2);
-		if(isSelektovan())
-			selektovan(g);
+		if(isSelected())
+			selected(g);
 	}
 	
-	public void izbrisi(Graphics g){
+	public void delete(Graphics g){
 		this.x=0;
 		this.y=0;
-		this.setSpoljBoja(Color.WHITE);
+		this.setOuterColor(Color.WHITE);
 		g.setColor(Color.WHITE);
-		this.setSelektovan(false);
-		this.selektovan(g);
+		this.setSelected(false);
+		this.selected(g);
 	}
 	
 	public int getX() {
@@ -88,7 +88,7 @@ public class Tacka extends Oblik {
 	public void setY(int y) {
 		this.y = y;
 	}
-	public void popuni(Graphics g) {
+	public void fillSelf(Graphics g) {
 		// TODO Auto-generated method stub
 		
 	}
