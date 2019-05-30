@@ -27,7 +27,6 @@ What things you need to install the software and how to install them
 
 ### Starting Java Swing GUI project:
 * Open File/New/Java Project
-* Make sure u use an execution environment JRE (I used JavaSE-1.8)
 * Create the project and open it
 * Right click the src folder and click New/Other ... Find WindowBuilder/Swing Designer ... and click Application Window
 * Package text box is reffering to package with all Java classes
