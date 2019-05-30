@@ -35,4 +35,4 @@ What things you need to install the software and how to install them
 
 ## Sorting and Stack classes
 
-These are also apps that use Java Swing GUI. Sorting app will sort all added squares and show them in a window, sort is based on length of squares in ascending order. Stack app will delete elements from stack and show them in a window. (Simple apps for practise purposes)
+These are also apps that use Java Swing GUI. Sorting app will sort all added squares and show them in a window, sort is based on length of squares in ascending order. Stack app will delete elements from stack and show them in a window. (Simple apps for practice purposes)
